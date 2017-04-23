@@ -16,14 +16,6 @@ class TimerPageController: UIViewController {
     var timeLeft = 0
     var timer = Timer()
     
-    @IBOutlet weak var minutePicker: UIPickerView!
-    var minutePickerDts = SimplePickerViewDataSource()
-    let minutesToPick = Array(0...59).map { String(format: "%02d", $0)}
-    
-    @IBOutlet weak var secondPicker: UIPickerView!
-    var secondPickerDts = SimplePickerViewDataSource()
-    let secondsToPick = Array(0...59).map { String(format: "%02d", $0)}
-    
     @IBOutlet weak var timerNavBar: UINavigationItem!
     var startButton = UIBarButtonItem()
     var pauseButton = UIBarButtonItem()
@@ -36,13 +28,7 @@ class TimerPageController: UIViewController {
         speechTime = appDelegate.speechTime
         timeLeft = appDelegate.speechTime
         
-        minutePickerDts.setData(dataToSet: minutesToPick)
-        minutePicker.dataSource = minutePickerDts
-        minutePicker.delegate = minutePickerDts
-        
-        secondPickerDts.setData(dataToSet: secondsToPick)
-        secondPicker.dataSource = secondPickerDts
-        secondPicker.delegate = secondPickerDts
+        updateLabel()
         
         startButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(TimerPageController.timerStart(_:)))
         pauseButton = UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(TimerPageController.timerPause(_:)))
@@ -56,12 +42,16 @@ class TimerPageController: UIViewController {
     
     func update(_ timer: Timer) {
         timeLeft = timeLeft - 1
-        let minutes = String(format: "%02d", (timeLeft / 60))
-        let seconds = String(format: "%02d", (timeLeft % 60))
-        timerLabel.text = minutes + ":" + seconds
+        updateLabel()
         if(timeLeft <= 0) {
             timer.invalidate()
         }
+    }
+    
+    func updateLabel () {
+        let minutes = String(format: "%02d", (timeLeft / 60))
+        let seconds = String(format: "%02d", (timeLeft % 60))
+        timerLabel.text = minutes + ":" + seconds
     }
     
     @IBAction func timerStart(_ sender: Any) {
@@ -76,9 +66,7 @@ class TimerPageController: UIViewController {
     @IBAction func timerRestart(_ sender: Any) {
         timer.invalidate()
         timeLeft = speechTime
-        let minutes = String(format: "%02d", (timeLeft / 60))
-        let seconds = String(format: "%02d", (timeLeft % 60))
-        timerLabel.text = minutes + ":" + seconds
+        updateLabel()
     }
     
     @IBAction func timerPause(_ sender: Any) {

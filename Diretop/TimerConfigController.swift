@@ -31,6 +31,22 @@ class TimerConfigController: UIViewController {
         secondPickerDts.setData(dataToSet: secondsToPick)
         secondPicker.dataSource = secondPickerDts
         secondPicker.delegate = secondPickerDts
+        
+        let minutes = (appDelegate.speechTime / 60)
+        setDefaultValueToPickerView(pickerView: minutePicker, arrayToFind: minutesToPick, valueToSet: minutes)
+        
+        let seconds = (appDelegate.speechTime % 60)
+        setDefaultValueToPickerView(pickerView: secondPicker, arrayToFind: secondsToPick, valueToSet: seconds)
+        
+    }
+    
+    func setDefaultValueToPickerView (pickerView: UIPickerView, arrayToFind: Array<String>, valueToSet: Int) {
+        let rowKey = String(format: "%02d", valueToSet)
+        var rowPos = arrayToFind.index(of: rowKey)
+        if (rowPos == nil) {
+            rowPos = 0
+        }
+        pickerView.selectRow(rowPos!, inComponent: 0, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,6 +55,13 @@ class TimerConfigController: UIViewController {
     }
     
     @IBAction func saveTimerConfig(_ sender: Any) {
-        appDelegate.speechTime = 90
+        let minutesSet = minutePicker.selectedRow(inComponent: 0)
+        let secondsSet = secondPicker.selectedRow(inComponent: 0)
+        
+        let minutesValue = Int(minutesSet) * 60
+        let secondsValue = Int(secondsSet)
+        let timeSet = minutesValue + secondsValue
+        
+        appDelegate.speechTime = timeSet
     }
 }
