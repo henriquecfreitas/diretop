@@ -11,7 +11,7 @@ import UIKit
 class ListPageController: UITableViewController {
     
     @IBOutlet var listTableView: UITableView!
-    var dataSource = SimpleDataSource()
+    var dataSource = SimpleTableViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()

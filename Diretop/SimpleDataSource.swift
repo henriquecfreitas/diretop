@@ -8,13 +8,19 @@
 
 import UIKit
 
-class SimpleDataSource: NSObject, UITableViewDataSource {
+class SimpleDataSource: NSObject {
     var data = Array<String>()
     
-/*    public init(dataSource: Array<String>) {
-        data = dataSource
-    }*/
+    public func addItenToDts(iten: String){
+        data.append(iten)
+    }
     
+    public func setData(dataToSet: Array<String>){
+        data = dataToSet
+    }
+}
+
+class SimpleTableViewDataSource: SimpleDataSource, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -25,8 +31,18 @@ class SimpleDataSource: NSObject, UITableViewDataSource {
         cell.textLabel?.text = data[index]
         return cell
     }
+}
+
+class SimplePickerViewDataSource: SimpleDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
-    public func addItenToDts(iten: String){
-        data.append(iten)
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return data.count
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return data[row]
     }
 }
