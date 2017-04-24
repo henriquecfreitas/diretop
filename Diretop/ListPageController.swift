@@ -29,9 +29,4 @@ class ListPageController: UITableViewController {
         listTableView.dataSource = dataSource
         listTableView.reloadData()
     }
-    
-    @IBAction func addItenToDts(_ sender: Any) {
-        dataSource.addItenToDts(iten: "a")
-        updateDataSource()
-    }
 }

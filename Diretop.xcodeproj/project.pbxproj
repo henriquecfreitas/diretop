@@ -14,7 +14,6 @@
 		BED0E5221EAA60C2004F4A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED0E5201EAA60C2004F4A95 /* Main.storyboard */; };
 		BED0E5241EAA60C2004F4A95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED0E5231EAA60C2004F4A95 /* Assets.xcassets */; };
 		BED0E5271EAA60C2004F4A95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED0E5251EAA60C2004F4A95 /* LaunchScreen.storyboard */; };
-		BED0E5351EAA8DF8004F4A95 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0E5341EAA8DF8004F4A95 /* TabBarController.swift */; };
 		BED0E5371EAA8E7A004F4A95 /* TimerPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0E5361EAA8E7A004F4A95 /* TimerPageController.swift */; };
 		BED0E5391EABCF2B004F4A95 /* ListPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0E5381EABCF2B004F4A95 /* ListPageController.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +28,6 @@
 		BED0E5231EAA60C2004F4A95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BED0E5261EAA60C2004F4A95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BED0E5281EAA60C2004F4A95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BED0E5341EAA8DF8004F4A95 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BED0E5361EAA8E7A004F4A95 /* TimerPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPageController.swift; sourceTree = "<group>"; };
 		BED0E5381EABCF2B004F4A95 /* ListPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,7 +68,6 @@
 				BED0E5231EAA60C2004F4A95 /* Assets.xcassets */,
 				BED0E5251EAA60C2004F4A95 /* LaunchScreen.storyboard */,
 				BED0E5281EAA60C2004F4A95 /* Info.plist */,
-				BED0E5341EAA8DF8004F4A95 /* TabBarController.swift */,
 				BED0E5361EAA8E7A004F4A95 /* TimerPageController.swift */,
 				BED0E5381EABCF2B004F4A95 /* ListPageController.swift */,
 				BE45AA7F1EABE3BD00D62E2E /* SimpleDataSource.swift */,
@@ -152,7 +149,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BED0E5351EAA8DF8004F4A95 /* TabBarController.swift in Sources */,
 				BED0E51F1EAA60C2004F4A95 /* ViewController.swift in Sources */,
 				BED0E5371EAA8E7A004F4A95 /* TimerPageController.swift in Sources */,
 				BE440E7E1EACA67800AF6E5C /* TimerConfigController.swift in Sources */,
