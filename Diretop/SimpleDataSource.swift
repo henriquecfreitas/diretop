@@ -15,6 +15,10 @@ class SimpleDataSource: NSObject {
         data.append(iten)
     }
     
+    public func removeItenFromDts(index: Int){
+        data.remove(at: index)
+    }
+    
     public func setData(dataToSet: Array<String>){
         data = dataToSet
     }
@@ -30,6 +34,18 @@ class SimpleTableViewDataSource: SimpleDataSource, UITableViewDataSource {
         let index = indexPath.item
         cell.textLabel?.text = data[index]
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            let index = indexPath.item
+            self.removeItenFromDts(index: index);
+            tableView.reloadData()
+        }
     }
 }
 

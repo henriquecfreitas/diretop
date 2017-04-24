@@ -12,6 +12,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     var bottomConstraintValue: CGFloat = 0
 
+    @IBOutlet weak var listContainer: UIView!
+    @IBOutlet weak var inputText: UITextField!
+    
+    var embeddedViewController: ListPageController!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let childViewController = segue.destination as? ListPageController
+        if (segue.identifier == "listEmbedSegue") {
+            self.embeddedViewController = childViewController!
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,10 +32,10 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-
-        view.addGestureRecognizer(tap)
+        tap.cancelsTouchesInView = false
+        listContainer.addGestureRecognizer(tap)
     }
-    
+ 
     deinit {
         NotificationCenter.default.removeObserver(self);
     }
@@ -52,6 +64,15 @@ class ViewController: UIViewController {
     
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @IBAction func addButton(_ sender: Any) {
+        let itenToInsert = inputText.text
+        if (itenToInsert?.isEmpty == false){
+            embeddedViewController.dataSource.addItenToDts(iten: itenToInsert!)
+            embeddedViewController.updateDataSource()
+            inputText.text = ""
+        }
     }
 
 }

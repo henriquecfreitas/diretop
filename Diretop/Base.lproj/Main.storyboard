@@ -218,8 +218,8 @@
         <!--List Page Controller-->
         <scene sceneID="CdE-AN-8Hg">
             <objects>
-                <tableViewController id="j9h-Sc-Kw8" customClass="ListPageController" customModule="Diretop" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="189-13-pOI">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="j9h-Sc-Kw8" customClass="ListPageController" customModule="Diretop" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="189-13-pOI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="514"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -250,7 +250,7 @@
         <!--Lista de Oradores-->
         <scene sceneID="f3X-po-TXr">
             <objects>
-                <viewController id="fCT-ex-EcY" customClass="ViewController" customModule="Diretop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fCT-ex-EcY" customClass="ViewController" customModule="Diretop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T4Q-HW-wN4"/>
                         <viewControllerLayoutGuide type="bottom" id="IxZ-nl-36z"/>
@@ -262,7 +262,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bw3-Rd-QFV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="514"/>
                                 <connections>
-                                    <segue destination="j9h-Sc-Kw8" kind="embed" id="nvg-uq-IFs"/>
+                                    <segue destination="j9h-Sc-Kw8" kind="embed" identifier="listEmbedSegue" id="nvg-uq-IFs"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hIq-Jh-HPn">
@@ -276,6 +276,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntj-RI-0Ml">
                                         <rect key="frame" x="343" y="0.0" width="22" height="30"/>
+                                        <connections>
+                                            <action selector="addButton:" destination="fCT-ex-EcY" eventType="touchUpInside" id="ZEb-fZ-vc6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -295,6 +298,8 @@
                     <navigationItem key="navigationItem" title="Lista de Oradores" id="afW-Uh-yCt"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="ts1-Wi-S0L" id="OYD-42-UR4"/>
+                        <outlet property="inputText" destination="IpX-Vd-BI6" id="XpS-2h-3Yv"/>
+                        <outlet property="listContainer" destination="Bw3-Rd-QFV" id="hEn-nQ-lBh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReR-Xe-YFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
