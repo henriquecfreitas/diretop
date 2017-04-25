@@ -134,6 +134,7 @@
                         <outlet property="progressBar" destination="TuD-6k-mAs" id="hBB-8Y-tFa"/>
                         <outlet property="timerLabel" destination="O8U-iW-IJH" id="FLf-wv-YNR"/>
                         <outlet property="timerNavBar" destination="08g-JS-W3C" id="Yae-Ee-bu9"/>
+                        <outlet property="timerPageView" destination="6Og-0R-Scw" id="DEc-JR-AoN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKd-Ok-QKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
