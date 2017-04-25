@@ -95,18 +95,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8U-iW-IJH">
-                                <rect key="frame" x="0.0" y="72" width="375" height="474"/>
+                                <rect key="frame" x="0.0" y="249" width="375" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TuD-6k-mAs">
+                                <rect key="frame" x="16" y="369" width="343" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="O8U-iW-IJH" firstAttribute="centerY" secondItem="6Og-0R-Scw" secondAttribute="centerY" id="Zu1-72-jgE"/>
-                            <constraint firstItem="O8U-iW-IJH" firstAttribute="width" secondItem="6Og-0R-Scw" secondAttribute="width" id="dvQ-DX-487"/>
-                            <constraint firstItem="O8U-iW-IJH" firstAttribute="top" secondItem="lso-4D-lVt" secondAttribute="bottom" constant="8" symbolic="YES" id="iap-xI-eVw"/>
-                            <constraint firstItem="O8U-iW-IJH" firstAttribute="centerX" secondItem="6Og-0R-Scw" secondAttribute="centerX" id="mp8-z8-5bb"/>
+                            <constraint firstItem="O8U-iW-IJH" firstAttribute="centerY" secondItem="6Og-0R-Scw" secondAttribute="centerY" id="8SR-nJ-jav"/>
+                            <constraint firstItem="TuD-6k-mAs" firstAttribute="leading" secondItem="6Og-0R-Scw" secondAttribute="leadingMargin" id="Dxn-cL-4ni"/>
+                            <constraint firstItem="TuD-6k-mAs" firstAttribute="top" secondItem="O8U-iW-IJH" secondAttribute="bottom" id="dxV-Wj-onI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TuD-6k-mAs" secondAttribute="trailing" id="l6i-dp-pfP"/>
+                            <constraint firstItem="O8U-iW-IJH" firstAttribute="centerX" secondItem="6Og-0R-Scw" secondAttribute="centerX" id="sSw-6r-bV5"/>
+                            <constraint firstItem="O8U-iW-IJH" firstAttribute="width" secondItem="6Og-0R-Scw" secondAttribute="width" id="xif-CD-MB8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cronômetro" image="Timer" id="ZIL-EX-cL8"/>
@@ -126,6 +131,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="progressBar" destination="TuD-6k-mAs" id="hBB-8Y-tFa"/>
                         <outlet property="timerLabel" destination="O8U-iW-IJH" id="FLf-wv-YNR"/>
                         <outlet property="timerNavBar" destination="08g-JS-W3C" id="Yae-Ee-bu9"/>
                     </connections>
@@ -181,7 +187,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QL-oA-7ce">
-                                <rect key="frame" x="159" y="427" width="56" height="36"/>
+                                <rect key="frame" x="159.5" y="427" width="56" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Salvar"/>
                                 <connections>
