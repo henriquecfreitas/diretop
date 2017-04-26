@@ -8,9 +8,36 @@
 
 import UIKit
 
+class TimerConfigPageController: UITableViewController {
+    //VARS
+    @IBOutlet weak var speechTimeLabel: UILabel!
+    @IBOutlet weak var alarmTimeLeftLabel: UILabel!
+    @IBOutlet weak var alarmDurationLabel: UILabel!
+    
+    //FUNCS
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let speechTime = intToTimeStamp(time: UserDefaults.standard.integer(forKey: "speechTime"))
+        speechTimeLabel.text = speechTime
+        
+        let alarmTimeLeft = intToTimeStamp(time: UserDefaults.standard.integer(forKey: "alarmTimeLeft"))
+        alarmTimeLeftLabel.text = alarmTimeLeft
+        
+        let alarmDuration = intToTimeStamp(time: UserDefaults.standard.integer(forKey: "alarmDuration"))
+        alarmDurationLabel.text = alarmDuration
+    }
+    
+    func intToTimeStamp(time: Int) -> String {
+        let minutes = String(format: "%02d", (time / 60))
+        let seconds = String(format: "%02d", (time % 60))
+        return minutes + ":" + seconds
+    }
+}
+
 class TimerConfigController: UIViewController {
     //VARS
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var setUpTime: Int = 0
+    var viewIdentifier: String = ""
     
     @IBOutlet weak var minutePicker: UIPickerView!
     var minutePickerDts = SimplePickerViewDataSource()
@@ -24,20 +51,31 @@ class TimerConfigController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        viewIdentifier = self.restorationIdentifier!
+        setUpTime = UserDefaults.standard.integer(forKey: viewIdentifier)
+        
         minutePickerDts.setData(dataToSet: minutesToPick)
+        minutePickerDts.onRowSelected = saveTimerConfig
         minutePicker.dataSource = minutePickerDts
         minutePicker.delegate = minutePickerDts
         
         secondPickerDts.setData(dataToSet: secondsToPick)
+        secondPickerDts.onRowSelected = saveTimerConfig
         secondPicker.dataSource = secondPickerDts
         secondPicker.delegate = secondPickerDts
         
-        let minutes = (appDelegate.speechTime / 60)
+        let minutes = (setUpTime / 60)
         setDefaultValueToPickerView(pickerView: minutePicker, arrayToFind: minutesToPick, valueToSet: minutes)
         
-        let seconds = (appDelegate.speechTime % 60)
+        let seconds = (setUpTime % 60)
         setDefaultValueToPickerView(pickerView: secondPicker, arrayToFind: secondsToPick, valueToSet: seconds)
         
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func setDefaultValueToPickerView (pickerView: UIPickerView, arrayToFind: Array<String>, valueToSet: Int) {
@@ -49,19 +87,14 @@ class TimerConfigController: UIViewController {
         pickerView.selectRow(rowPos!, inComponent: 0, animated: false)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func saveTimerConfig(_ sender: Any) {
+    func saveTimerConfig() {
         let minutesSet = minutePicker.selectedRow(inComponent: 0)
         let secondsSet = secondPicker.selectedRow(inComponent: 0)
         
         let minutesValue = Int(minutesSet) * 60
         let secondsValue = Int(secondsSet)
-        let timeSet = minutesValue + secondsValue
+        setUpTime = minutesValue + secondsValue
         
-        appDelegate.speechTime = timeSet
+        UserDefaults.standard.set(setUpTime, forKey: viewIdentifier)
     }
 }

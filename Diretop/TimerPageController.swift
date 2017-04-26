@@ -13,11 +13,15 @@ class TimerPageController: UIViewController {
     //VARS
     @IBOutlet var timerPageView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var speechTime = 0
-    var timeLeft: Double = 0.0
     
-    var timerAlertConfig = TimerAlertConfig()
+    var speechTime = UserDefaults.standard.integer(forKey: "speechTime")
+    var secondsLeftToAlarm = UserDefaults.standard.integer(forKey: "alarmTimeLeft")
+    var alarmDuration = UserDefaults.standard.integer(forKey: "alarmDuration")
+    
+    var timeLeft: Double!
+    var initialSpeechTime: Int!
+    
+    var timerAlert: TimerAlert!
     
     var timer = Timer()
     
@@ -27,23 +31,31 @@ class TimerPageController: UIViewController {
     var rightButtonsArr = Array<UIBarButtonItem>()
     
     @IBOutlet weak var progressBar: UIProgressView!
-    var progress: Float = 0.0
+    
     //FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        speechTime = appDelegate.speechTime
-        timeLeft = Double(speechTime)
-        
-        updateLabel()
-        updateProgressBar()
+        resetTimerInfo()
         
         startButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(TimerPageController.timerStart(_:)))
         pauseButton = UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(TimerPageController.timerPause(_:)))
         enableStartButton()
-        progressBar.progress = 0.0
         
-        timerAlertConfig = TimerAlertConfig(pageView: timerPageView, secondsLeft: 5.0, totalBlinks: 3, duration: 2.0, alreadyCalled: false)
+        let timerLabelTap = UITapGestureRecognizer(target: self, action: #selector(TimerPageController.playOrPause(_:)))
+        timerLabel.addGestureRecognizer(timerLabelTap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        speechTime = UserDefaults.standard.integer(forKey: "speechTime")
+        secondsLeftToAlarm = UserDefaults.standard.integer(forKey: "alarmTimeLeft")
+        alarmDuration = UserDefaults.standard.integer(forKey: "alarmDuration")
+        
+        if (timeLeft == Double(initialSpeechTime)) {
+            resetTimerInfo()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,10 +69,7 @@ class TimerPageController: UIViewController {
         updateLabel()
         updateProgressBar()
         
-        if (timeLeft <= timerAlertConfig.secondsLeft && timerAlertConfig.alreadyCalled == false) {
-            timerAlertConfig.blinkScreen()
-            timerAlertConfig.alreadyCalled = true
-        }
+        timerAlert.checkAlarm(timeLeft: timeLeft)
         
         if(timeLeft <= 0) {
             timer.invalidate()
@@ -81,9 +90,10 @@ class TimerPageController: UIViewController {
         let seconds = String(format: "%02d", (intTimeLeft % 60))
         timerLabel.text = minutes + ":" + seconds
     }
+    
     func updateProgressBar() {
-        let timeSpent = Double(speechTime) - timeLeft
-        progress = Float(timeSpent / Double(speechTime))
+        let timeSpent = Double(initialSpeechTime) - timeLeft
+        let progress = Float(timeSpent / Double(initialSpeechTime))
         
         let red = progress >= 0.5 ? 1 : progress * 2.0
         let green = progress <= 0.5 ? 1 : (1.0 - progress) * 2.0
@@ -91,6 +101,14 @@ class TimerPageController: UIViewController {
         
         progressBar.progressTintColor = color
         progressBar.progress = progress
+    }
+    
+    func playOrPause(_ sender: Any) {
+        if (timer.isValid) {
+            timerPause(sender)
+        } else {
+            timerStart(sender)
+        }
     }
     
     @IBAction func timerStart(_ sender: Any) {
@@ -117,8 +135,10 @@ class TimerPageController: UIViewController {
     }
     
     func resetTimerInfo() {
-        timerAlertConfig.alreadyCalled = false
+        timerAlert = TimerAlert(pageView: timerPageView, secondsLeft: secondsLeftToAlarm, duration: alarmDuration, alreadyCalled: false)
+        
         timeLeft = Double(speechTime)
+        initialSpeechTime = speechTime
         
         updateLabel()
         updateProgressBar()
@@ -130,35 +150,40 @@ class TimerPageController: UIViewController {
     }
 }
 
-class TimerAlertConfig {
-    var pageView = UIView().self
+class TimerAlert {
+    var pageView: UIView!
     
-    var secondsLeft: Double = 0.0
-    var totalBlinks: Int = 0
-    var duration: Double = 0.0
-    var alreadyCalled: Bool = false
+    var secondsLeft: Int!
+    var duration: Int!
+    var alreadyCalled: Bool!
     
-    public init(){
-    }
-    
-    public init(pageView: UIView, secondsLeft: Double, totalBlinks: Int, duration: Double, alreadyCalled: Bool) {
+    public init(pageView: UIView, secondsLeft: Int, duration: Int, alreadyCalled: Bool) {
         self.pageView = pageView
         self.secondsLeft = secondsLeft
-        self.totalBlinks = totalBlinks
         self.duration = duration
         self.alreadyCalled = alreadyCalled
     }
     
-    public func paintScreen(backgroundColor: UIColor){
-        self.pageView.backgroundColor = backgroundColor
+    public func checkAlarm(timeLeft: Double) {
+        if (timeLeft <= Double(self.secondsLeft) && self.alreadyCalled == false) {
+            self.blinkScreen()
+            self.alreadyCalled = true
+        }
     }
     
-    public func blinkScreen() {
+    private func paintScreen(backgroundColor: UIColor){
+        pageView.backgroundColor = backgroundColor
+    }
+    
+    private func blinkScreen() {
         var doneBlinks = 0
         
         let redColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
         let whiteColor = UIColor(white: 1, alpha: 1)
-        let halfBlinkDuration = duration / Double(totalBlinks) / 2.0
+        
+        let fullBlinkDuration = 0.5
+        let halfBlinkDuration = fullBlinkDuration / 2.0
+        let totalBlinks = Int(floor(Double(Double(duration) / fullBlinkDuration)))
         
         func doBlink(){
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
@@ -169,7 +194,7 @@ class TimerAlertConfig {
                     self.paintScreen(backgroundColor: whiteColor)
                 }, completion: { (true) -> Void in
                     doneBlinks = doneBlinks + 1
-                    if (doneBlinks < self.totalBlinks) {
+                    if (doneBlinks < totalBlinks) {
                         doBlink()
                     }
                 })

@@ -50,6 +50,8 @@ class SimpleTableViewDataSource: SimpleDataSource, UITableViewDataSource {
 }
 
 class SimplePickerViewDataSource: SimpleDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
+    var onRowSelected: ( () -> Void )?
+    
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -60,5 +62,9 @@ class SimplePickerViewDataSource: SimpleDataSource, UIPickerViewDataSource, UIPi
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return data[row]
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        onRowSelected!()
     }
 }

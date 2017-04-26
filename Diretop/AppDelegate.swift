@@ -12,31 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    var speechTime = 90
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        /*let tabBarController:UITabBarController = UIStoryboard(name: "Main", bundle: nil).instan
-        instantiateViewController(withIdentifier: "rootTabBarController") as UIViewController
-        
-        let vc1:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "teste1") as UIViewController
-        let vc2:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "teste2") as UIViewController
-        let vc3:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "teste3") as UIViewController
-        
-        let controllers = [vc1,vc2,vc3]
-        
-        tabBarController.viewControllers = controllers
-        
-        vc1.tabBarItem = UITabBarItem(title: "item1", image: nil, tag: 1)
-        vc2.tabBarItem = UITabBarItem(title: "item2", image: nil, tag: 1)
-        vc3.tabBarItem = UITabBarItem(title: "item3", image: nil, tag: 1)
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = tabBarController
-        window?.makeKeyAndVisible()*/
-        
         
         return true
     }
