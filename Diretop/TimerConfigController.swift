@@ -11,20 +11,45 @@ import UIKit
 class TimerConfigPageController: UITableViewController {
     //VARS
     @IBOutlet weak var speechTimeLabel: UILabel!
+    @IBOutlet weak var touchOnTimerLabelSwitch: UISwitch!
+    
+    @IBOutlet weak var alarmIsActiveSwitch: UISwitch!
+    
+    @IBOutlet weak var alarmTimeLeftCell: UITableViewCell!
     @IBOutlet weak var alarmTimeLeftLabel: UILabel!
+    
+    @IBOutlet weak var alarmDurationCell: UITableViewCell!
     @IBOutlet weak var alarmDurationLabel: UILabel!
     
+    @IBOutlet weak var alarmVibrationCell: UITableViewCell!
+    @IBOutlet weak var alarmVibrationSwitch: UISwitch!
+    
     //FUNCS
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateAlarmTableCells()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let speechTime = intToTimeStamp(time: UserDefaults.standard.integer(forKey: "speechTime"))
         speechTimeLabel.text = speechTime
+        
+        let touchOnTimerLabel = UserDefaults.standard.bool(forKey: "touchOnTimerLabel")
+        touchOnTimerLabelSwitch.isOn = touchOnTimerLabel
+        
+        
+        let alarmIsActive = UserDefaults.standard.bool(forKey: "alarmIsActive")
+        alarmIsActiveSwitch.isOn = alarmIsActive
         
         let alarmTimeLeft = intToTimeStamp(time: UserDefaults.standard.integer(forKey: "alarmTimeLeft"))
         alarmTimeLeftLabel.text = alarmTimeLeft
         
         let alarmDuration = intToTimeStamp(time: UserDefaults.standard.integer(forKey: "alarmDuration"))
         alarmDurationLabel.text = alarmDuration
+        
+        let alarmVibration = UserDefaults.standard.bool(forKey: "alarmVibration")
+        alarmVibrationSwitch.isOn = alarmVibration
     }
     
     func intToTimeStamp(time: Int) -> String {
@@ -32,6 +57,32 @@ class TimerConfigPageController: UITableViewController {
         let seconds = String(format: "%02d", (time % 60))
         return minutes + ":" + seconds
     }
+    
+    func updateAlarmTableCells() {
+        let alarmIsActive = UserDefaults.standard.bool(forKey: "alarmIsActive")
+        
+        self.alarmTimeLeftCell.isHidden = !alarmIsActive
+        self.alarmDurationCell.isHidden = !alarmIsActive
+        self.alarmVibrationCell.isHidden = !alarmIsActive
+    }
+    
+    @IBAction func touchOnTimerLabelOnChange(_ sender: Any) {
+        let touchOnTimerLabel = touchOnTimerLabelSwitch.isOn
+        UserDefaults.standard.set(touchOnTimerLabel, forKey: "touchOnTimerLabel")
+    }
+    
+    @IBAction func alarmIsActiveOnChange(_ sender: Any) {
+        let alarmIsActive = alarmIsActiveSwitch.isOn
+        UserDefaults.standard.set(alarmIsActive, forKey: "alarmIsActive")
+        updateAlarmTableCells()
+    }
+    
+    
+    @IBAction func alarmVibrationOnChange(_ sender: Any) {
+        let alarmVibration = alarmVibrationSwitch.isOn
+        UserDefaults.standard.set(alarmVibration, forKey: "alarmVibration")
+    }
+    
 }
 
 class TimerConfigController: UIViewController {

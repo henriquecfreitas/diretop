@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        if (firstTimeRun()) {
+            initializeDefaultSettings()
+        }
         return true
     }
 
@@ -39,6 +41,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    func firstTimeRun() -> Bool {
+        return !UserDefaults.standard.bool(forKey: "alreadyInitializedDefaultSettings")
+    }
+    
+    func initializeDefaultSettings() -> Void {
+        UserDefaults.standard.set(true, forKey: "alreadyInitializedDefaultSettings")
+        
+        let speechTime = 90
+        let touchOnTimerLabel = true
+        
+        let alarmDuration = 2
+        let alarmTimeLeft = 5
+        let alarmIsActive = false
+        let alarmVibration = true
+        
+        UserDefaults.standard.set(speechTime, forKey: "speechTime")
+        UserDefaults.standard.set(touchOnTimerLabel, forKey: "touchOnTimerLabel")
+        
+        UserDefaults.standard.set(alarmIsActive, forKey: "alarmIsActive")
+        UserDefaults.standard.set(alarmTimeLeft, forKey: "alarmTimeLeft")
+        UserDefaults.standard.set(alarmDuration, forKey: "alarmDuration")
+        UserDefaults.standard.set(alarmVibration, forKey: "alarmVibration")
     }
 
 

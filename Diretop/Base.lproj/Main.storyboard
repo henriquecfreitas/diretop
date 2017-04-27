@@ -27,7 +27,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Yt-Yx-hZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-756" y="723"/>
+            <point key="canvasLocation" x="-1594" y="724"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="FPU-UB-Xtx">
@@ -63,7 +63,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eP6-P2-eeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="724"/>
+            <point key="canvasLocation" x="1780" y="723"/>
         </scene>
         <!--Item-->
         <scene sceneID="14k-fF-4vP">
@@ -100,7 +100,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempo de Discurso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAu-Ke-zcy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempo de discurso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAu-Ke-zcy">
                                                     <rect key="frame" x="23" y="10.5" width="300.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -132,7 +132,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iniciar e pausar ao tocar no tempo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIw-Hz-yEq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tocar para acionar o cronômetro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIw-Hz-yEq">
                                                     <rect key="frame" x="23" y="10.5" width="295" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -140,6 +140,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1uI-Xk-hmY">
                                                     <rect key="frame" x="318" y="5.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="touchOnTimerLabelOnChange:" destination="fz2-au-3zC" eventType="valueChanged" id="GH4-HD-VQX"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -170,6 +173,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KxR-Dn-crB">
                                                     <rect key="frame" x="318" y="5.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="alarmIsActiveOnChange:" destination="fz2-au-3zC" eventType="valueChanged" id="ca9-ut-gZl"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -260,6 +266,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yL1-ig-O52">
                                                     <rect key="frame" x="318" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="alarmVibrationOnChange:" destination="fz2-au-3zC" eventType="valueChanged" id="4QX-lO-56s"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -280,14 +289,20 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="alarmDurationCell" destination="1sg-O9-Oei" id="yTx-Or-iq5"/>
                         <outlet property="alarmDurationLabel" destination="lM9-Fy-9h2" id="q6w-hj-ZdI"/>
+                        <outlet property="alarmIsActiveSwitch" destination="KxR-Dn-crB" id="Srw-xQ-Aoh"/>
+                        <outlet property="alarmTimeLeftCell" destination="PiB-Gk-iKW" id="yff-9S-FYd"/>
                         <outlet property="alarmTimeLeftLabel" destination="d4b-1s-uPR" id="zgg-Qa-oTH"/>
+                        <outlet property="alarmVibrationCell" destination="nCp-6X-cNk" id="Bbc-r2-6gE"/>
+                        <outlet property="alarmVibrationSwitch" destination="yL1-ig-O52" id="ra7-BI-PrE"/>
                         <outlet property="speechTimeLabel" destination="hjH-WM-ebh" id="YcN-cX-0hE"/>
+                        <outlet property="touchOnTimerLabelSwitch" destination="1uI-Xk-hmY" id="PQr-hs-KBR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55G-ho-CmL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-756" y="2355"/>
+            <point key="canvasLocation" x="-1594" y="2287"/>
         </scene>
         <!--Cronômetro-->
         <scene sceneID="scH-Dt-wN6">
@@ -301,7 +316,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8U-iW-IJH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8U-iW-IJH">
                                 <rect key="frame" x="0.0" y="249" width="375" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <nil key="textColor"/>
@@ -346,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKd-Ok-QKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-756" y="1496.4017991004498"/>
+            <point key="canvasLocation" x="-1594" y="1497"/>
         </scene>
         <!--Tempo de Discurso-->
         <scene sceneID="Ofr-wq-nr3">
@@ -408,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qv-IC-F3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1423" y="3149"/>
+            <point key="canvasLocation" x="-2217" y="3150"/>
         </scene>
         <!--Alertar Faltando-->
         <scene sceneID="slE-30-UCU">
@@ -468,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6y-hX-bUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-756" y="3149"/>
+            <point key="canvasLocation" x="-1594" y="3150"/>
         </scene>
         <!--Duração do Alerta-->
         <scene sceneID="6UJ-F3-eck">
@@ -528,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Djx-eY-EiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-119" y="3149"/>
+            <point key="canvasLocation" x="-972" y="3150"/>
         </scene>
         <!--List Page Controller-->
         <scene sceneID="CdE-AN-8Hg">
@@ -639,7 +654,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJG-gO-oAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="1498"/>
+            <point key="canvasLocation" x="1780" y="1496"/>
         </scene>
     </scenes>
     <resources>
