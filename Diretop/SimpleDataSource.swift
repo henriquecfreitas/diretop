@@ -25,6 +25,14 @@ class SimpleDataSource: NSObject {
 }
 
 class SimpleTableViewDataSource: SimpleDataSource, UITableViewDataSource {
+    var tableKey: String!
+    
+    init(tableKey: String) {
+        super.init()
+        self.tableKey = tableKey
+        self.setData(dataToSet: getPersistedData())
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -43,9 +51,28 @@ class SimpleTableViewDataSource: SimpleDataSource, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let index = indexPath.item
-            self.removeItenFromDts(index: index);
+            self.removeItenFromDts(index: index)
             tableView.reloadData()
         }
+    }
+    
+    override func addItenToDts(iten: String) {
+        super.addItenToDts(iten: iten)
+        persistData()
+    }
+    
+    override func removeItenFromDts(index: Int) {
+        super.removeItenFromDts(index: index)
+        persistData()
+    }
+    
+    public func persistData() {
+        UserDefaults.standard.set(data, forKey: tableKey)
+    }
+    
+    public func getPersistedData() -> Array<String> {
+        let data = UserDefaults.standard.array(forKey: tableKey) as! Array<String>
+        return data
     }
 }
 

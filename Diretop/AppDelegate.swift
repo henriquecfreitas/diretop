@@ -59,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let alarmIsActive = false
         let alarmVibration = true
         
+        let speechList = Array<String>()
+        
         UserDefaults.standard.set(speechTime, forKey: "speechTime")
         UserDefaults.standard.set(touchOnTimerLabel, forKey: "touchOnTimerLabel")
         
@@ -66,6 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(alarmTimeLeft, forKey: "alarmTimeLeft")
         UserDefaults.standard.set(alarmDuration, forKey: "alarmDuration")
         UserDefaults.standard.set(alarmVibration, forKey: "alarmVibration")
+        
+        UserDefaults.standard.set(speechList, forKey: "speechList")
     }
 
 

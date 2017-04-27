@@ -11,11 +11,14 @@ import UIKit
 class ListPageController: UITableViewController {
     
     @IBOutlet var listTableView: UITableView!
-    var dataSource = SimpleTableViewDataSource()
+    var dataSource: SimpleTableViewDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let viewIdentifier = self.restorationIdentifier!
+        dataSource = SimpleTableViewDataSource(tableKey: viewIdentifier)
+        
         listTableView.tableFooterView = UIView()
         updateDataSource()
     }
