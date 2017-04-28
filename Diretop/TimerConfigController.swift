@@ -91,11 +91,11 @@ class TimerConfigController: UIViewController {
     var viewIdentifier: String = ""
     
     @IBOutlet weak var minutePicker: UIPickerView!
-    var minutePickerDts = SimplePickerViewDataSource()
+    var minutePickerDts = TimerConfigPickerViewDts()
     let minutesToPick = Array(0...59).map { String(format: "%02d", $0)}
     
     @IBOutlet weak var secondPicker: UIPickerView!
-    var secondPickerDts = SimplePickerViewDataSource()
+    var secondPickerDts = TimerConfigPickerViewDts()
     let secondsToPick = Array(0...59).map { String(format: "%02d", $0)}
     
     //FUNCS
@@ -107,12 +107,12 @@ class TimerConfigController: UIViewController {
         setUpTime = UserDefaults.standard.integer(forKey: viewIdentifier)
         
         minutePickerDts.setData(dataToSet: minutesToPick)
-        minutePickerDts.onRowSelected = saveTimerConfig
+        minutePickerDts.onRowSelectedMethod = saveTimerConfig
         minutePicker.dataSource = minutePickerDts
         minutePicker.delegate = minutePickerDts
         
         secondPickerDts.setData(dataToSet: secondsToPick)
-        secondPickerDts.onRowSelected = saveTimerConfig
+        secondPickerDts.onRowSelectedMethod = saveTimerConfig
         secondPicker.dataSource = secondPickerDts
         secondPicker.delegate = secondPickerDts
         
@@ -147,5 +147,13 @@ class TimerConfigController: UIViewController {
         setUpTime = minutesValue + secondsValue
         
         UserDefaults.standard.set(setUpTime, forKey: viewIdentifier)
+    }
+}
+
+class TimerConfigPickerViewDts : SimplePickerViewDataSource {
+    public var onRowSelectedMethod: ( () -> Void )?
+    
+    override func onRowSelected() {
+        onRowSelectedMethod!()
     }
 }

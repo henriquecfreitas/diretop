@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE440E7E1EACA67800AF6E5C /* TimerConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE440E7D1EACA67800AF6E5C /* TimerConfigController.swift */; };
 		BE45AA801EABE3BD00D62E2E /* SimpleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45AA7F1EABE3BD00D62E2E /* SimpleDataSource.swift */; };
+		BE92972E1EB3A63500C0DDC2 /* DelegationsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92972D1EB3A63500C0DDC2 /* DelegationsPickerView.swift */; };
 		BED0E51D1EAA60C2004F4A95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0E51C1EAA60C2004F4A95 /* AppDelegate.swift */; };
 		BED0E51F1EAA60C2004F4A95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0E51E1EAA60C2004F4A95 /* ViewController.swift */; };
 		BED0E5221EAA60C2004F4A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED0E5201EAA60C2004F4A95 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		BE440E7D1EACA67800AF6E5C /* TimerConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerConfigController.swift; sourceTree = "<group>"; };
 		BE45AA7F1EABE3BD00D62E2E /* SimpleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleDataSource.swift; sourceTree = "<group>"; };
+		BE92972D1EB3A63500C0DDC2 /* DelegationsPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegationsPickerView.swift; sourceTree = "<group>"; };
 		BED0E5191EAA60C2004F4A95 /* Diretop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diretop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED0E51C1EAA60C2004F4A95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED0E51E1EAA60C2004F4A95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				BED0E5381EABCF2B004F4A95 /* ListPageController.swift */,
 				BE45AA7F1EABE3BD00D62E2E /* SimpleDataSource.swift */,
 				BE440E7D1EACA67800AF6E5C /* TimerConfigController.swift */,
+				BE92972D1EB3A63500C0DDC2 /* DelegationsPickerView.swift */,
 			);
 			path = Diretop;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE92972E1EB3A63500C0DDC2 /* DelegationsPickerView.swift in Sources */,
 				BED0E51F1EAA60C2004F4A95 /* ViewController.swift in Sources */,
 				BED0E5371EAA8E7A004F4A95 /* TimerPageController.swift in Sources */,
 				BE440E7E1EACA67800AF6E5C /* TimerConfigController.swift in Sources */,

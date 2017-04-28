@@ -77,7 +77,7 @@ class SimpleTableViewDataSource: SimpleDataSource, UITableViewDataSource {
 }
 
 class SimplePickerViewDataSource: SimpleDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
-    var onRowSelected: ( () -> Void )?
+    func onRowSelected() {}
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -92,6 +92,6 @@ class SimplePickerViewDataSource: SimpleDataSource, UIPickerViewDataSource, UIPi
     }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        onRowSelected!()
+        onRowSelected()
     }
 }

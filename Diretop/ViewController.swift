@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let childViewController = segue.destination as? ListPageController
-        if (segue.identifier == "listEmbedSegue") {
+        if (segue.identifier == "delegationsListEmbedSegue") {
             self.embeddedViewController = childViewController!
         }
     }

@@ -95,7 +95,7 @@
                             <tableViewSection headerTitle="Cronômetro" id="R7K-c0-nSW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FPg-91-hto">
-                                        <rect key="frame" x="0.0" y="55" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FPg-91-hto" id="TzQ-WG-S2L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -127,10 +127,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="lxW-jK-2jq">
-                                        <rect key="frame" x="0.0" y="99" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lxW-jK-2jq" id="GjJ-MO-XGP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tocar para acionar o cronômetro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIw-Hz-yEq">
@@ -593,7 +593,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bw3-Rd-QFV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="514"/>
                                 <connections>
-                                    <segue destination="j9h-Sc-Kw8" kind="embed" identifier="listEmbedSegue" id="nvg-uq-IFs"/>
+                                    <segue destination="j9h-Sc-Kw8" kind="embed" identifier="delegationsListEmbedSegue" id="nvg-uq-IFs"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hIq-Jh-HPn">
@@ -679,7 +679,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="speechList" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jhG-ca-cfQ" customClass="ListPageController" customModule="Diretop" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LdM-MR-1PY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="514"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="328"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -709,7 +709,7 @@
         <!--Lista de Oradores-->
         <scene sceneID="phq-cC-1gr">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="wnw-xs-uYK" customClass="ViewController" customModule="Diretop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="wnw-xs-uYK" customClass="DelegationsPickerView" customModule="Diretop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lMJ-GW-kA7"/>
                         <viewControllerLayoutGuide type="bottom" id="eeo-cZ-Rkx"/>
@@ -719,22 +719,19 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVp-Bl-zJY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="514"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="328"/>
                                 <connections>
-                                    <segue destination="jhG-ca-cfQ" kind="embed" identifier="listEmbedSegue" id="Wow-Lq-Egu"/>
+                                    <segue destination="jhG-ca-cfQ" kind="embed" identifier="speecherListSegue" id="Wow-Lq-Egu"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zic-01-kfi">
-                                <rect key="frame" x="5" y="583" width="365" height="30"/>
+                                <rect key="frame" x="5" y="397" width="365" height="216"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6q-qj-TVA">
-                                        <rect key="frame" x="0.0" y="0.0" width="338" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <pickerView contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GYJ-Aq-DMN">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                    </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zd8-oC-YFt">
-                                        <rect key="frame" x="343" y="0.0" width="22" height="30"/>
+                                        <rect key="frame" x="325" y="0.0" width="40" height="216"/>
                                         <connections>
                                             <action selector="addButton:" destination="wnw-xs-uYK" eventType="touchUpInside" id="o1I-F9-6h4"/>
                                         </connections>
@@ -756,8 +753,7 @@
                     <tabBarItem key="tabBarItem" title="Lista" image="Malhete" id="l1I-S3-hXP"/>
                     <navigationItem key="navigationItem" title="Lista de Oradores" id="aF5-Sf-S2S"/>
                     <connections>
-                        <outlet property="bottomConstraint" destination="caj-6l-5mD" id="nVc-W1-nVG"/>
-                        <outlet property="inputText" destination="g6q-qj-TVA" id="Usf-rK-b0Y"/>
+                        <outlet property="delegationsPickerView" destination="GYJ-Aq-DMN" id="vKM-43-HgG"/>
                         <outlet property="listContainer" destination="tVp-Bl-zJY" id="EtE-Bv-74r"/>
                     </connections>
                 </viewController>
