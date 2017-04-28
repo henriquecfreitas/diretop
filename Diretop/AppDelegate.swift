@@ -59,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let alarmIsActive = false
         let alarmVibration = true
         
+        let delegationsList = Array<String>()
         let speechList = Array<String>()
         
         UserDefaults.standard.set(speechTime, forKey: "speechTime")
@@ -69,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(alarmDuration, forKey: "alarmDuration")
         UserDefaults.standard.set(alarmVibration, forKey: "alarmVibration")
         
+        UserDefaults.standard.set(delegationsList, forKey: "delegationsList")
         UserDefaults.standard.set(speechList, forKey: "speechList")
     }
 
