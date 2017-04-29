@@ -88,7 +88,7 @@ class SimplePickerViewDataSource: SimpleDataSource, UIPickerViewDataSource, UIPi
     }
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return data[row]
+        return data.count > 0 && data.count > row ? data[row] : ""
     }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

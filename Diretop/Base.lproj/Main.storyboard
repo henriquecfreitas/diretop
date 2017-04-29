@@ -95,7 +95,7 @@
                             <tableViewSection headerTitle="Cronômetro" id="R7K-c0-nSW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FPg-91-hto">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FPg-91-hto" id="TzQ-WG-S2L">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -127,7 +127,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="lxW-jK-2jq">
-                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="99" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lxW-jK-2jq" id="GjJ-MO-XGP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -160,10 +160,10 @@
                             <tableViewSection headerTitle="Alerta de Tempo" id="2uJ-Sh-eos">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="OcN-8d-jWa">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="199" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OcN-8d-jWa" id="PBa-3V-hHm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ativar alerta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eza-Hf-17Y">
@@ -189,10 +189,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PiB-Gk-iKW">
-                                        <rect key="frame" x="0.0" y="244" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="243" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PiB-Gk-iKW" id="aaS-bZ-Quv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alertar faltando" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFc-h0-9wg">
@@ -221,10 +221,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1sg-O9-Oei">
-                                        <rect key="frame" x="0.0" y="288" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="287" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1sg-O9-Oei" id="RDL-7d-a0E">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duração" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJu-bm-da9">
@@ -253,10 +253,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="nCp-6X-cNk">
-                                        <rect key="frame" x="0.0" y="332" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="331" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nCp-6X-cNk" id="xwU-2c-3hq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vibração" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgj-I0-wUJ">
@@ -679,7 +679,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="speechList" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jhG-ca-cfQ" customClass="ListPageController" customModule="Diretop" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LdM-MR-1PY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="328"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -719,13 +719,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVp-Bl-zJY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="328"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="528"/>
                                 <connections>
                                     <segue destination="jhG-ca-cfQ" kind="embed" identifier="speecherListSegue" id="Wow-Lq-Egu"/>
                                 </connections>
                             </containerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zic-01-kfi">
-                                <rect key="frame" x="5" y="397" width="365" height="216"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d7-K8-2uj">
+                                <rect key="frame" x="0.5" y="592" width="375" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" image="Uno"/>
+                                <connections>
+                                    <action selector="showHideDelegations:" destination="wnw-xs-uYK" eventType="touchUpInside" id="KXj-3O-JbG"/>
+                                </connections>
+                            </button>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zic-01-kfi">
+                                <rect key="frame" x="5" y="618" width="365" height="216"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GYJ-Aq-DMN">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
@@ -739,14 +747,17 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zic-01-kfi" firstAttribute="width" secondItem="QLC-KP-ESk" secondAttribute="width" constant="-10" id="BtK-5D-BEB"/>
+                            <constraint firstItem="6d7-K8-2uj" firstAttribute="centerX" secondItem="QLC-KP-ESk" secondAttribute="centerX" id="IBa-bW-eSJ"/>
                             <constraint firstItem="tVp-Bl-zJY" firstAttribute="width" secondItem="QLC-KP-ESk" secondAttribute="width" id="Qze-Tg-nsx"/>
-                            <constraint firstItem="eeo-cZ-Rkx" firstAttribute="top" secondItem="zic-01-kfi" secondAttribute="bottom" constant="5" id="caj-6l-5mD"/>
+                            <constraint firstItem="6d7-K8-2uj" firstAttribute="width" secondItem="QLC-KP-ESk" secondAttribute="width" id="ZwT-wy-rFP"/>
+                            <constraint firstItem="eeo-cZ-Rkx" firstAttribute="top" secondItem="zic-01-kfi" secondAttribute="top" id="caj-6l-5mD"/>
+                            <constraint firstItem="6d7-K8-2uj" firstAttribute="top" secondItem="tVp-Bl-zJY" secondAttribute="bottom" id="dSu-da-WaA"/>
                             <constraint firstItem="tVp-Bl-zJY" firstAttribute="top" secondItem="lMJ-GW-kA7" secondAttribute="bottom" id="fxR-dO-rUo"/>
+                            <constraint firstItem="zic-01-kfi" firstAttribute="top" secondItem="6d7-K8-2uj" secondAttribute="bottom" id="oyB-PK-mmt"/>
                             <constraint firstItem="zic-01-kfi" firstAttribute="centerX" secondItem="QLC-KP-ESk" secondAttribute="centerX" id="skJ-Jr-QjK"/>
-                            <constraint firstItem="zic-01-kfi" firstAttribute="top" secondItem="tVp-Bl-zJY" secondAttribute="bottom" constant="5" id="teV-PJ-bel"/>
                             <constraint firstItem="tVp-Bl-zJY" firstAttribute="centerX" secondItem="QLC-KP-ESk" secondAttribute="centerX" id="yQb-nL-f3D"/>
                         </constraints>
                     </view>
@@ -754,7 +765,11 @@
                     <navigationItem key="navigationItem" title="Lista de Oradores" id="aF5-Sf-S2S"/>
                     <connections>
                         <outlet property="delegationsPickerView" destination="GYJ-Aq-DMN" id="vKM-43-HgG"/>
+                        <outlet property="delegationsStackView" destination="zic-01-kfi" id="dyk-Nn-uru"/>
+                        <outlet property="hideDelegationsConstraint" destination="caj-6l-5mD" id="1Hi-GD-57u"/>
                         <outlet property="listContainer" destination="tVp-Bl-zJY" id="EtE-Bv-74r"/>
+                        <outlet property="showHideDelegationsButton" destination="6d7-K8-2uj" id="shw-9y-Ko0"/>
+                        <outlet property="speechListView" destination="QLC-KP-ESk" id="00E-Oe-i73"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIw-r3-xmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
