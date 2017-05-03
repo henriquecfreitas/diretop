@@ -77,7 +77,10 @@ class SimpleTableViewDataSource: SimpleDataSource, UITableViewDataSource {
 }
 
 class SimplePickerViewDataSource: SimpleDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
-    func onRowSelected() {}
+    func onRowSelected() {/*
+         override this method if you need to execute any actions after selecting another row
+         ps: 9x2 eterno
+    */}
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
