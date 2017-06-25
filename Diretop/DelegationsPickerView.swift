@@ -127,9 +127,19 @@ class DelegationsPickerView: UIViewController {
         let index = delegationsPickerView.selectedRow(inComponent: 0)
         let itenToInsert = delegationsPickerView.delegate?.pickerView!(delegationsPickerView, titleForRow: index, forComponent: 0)!
         
-        if (itenToInsert?.isEmpty == false){
+        if (verifyDelegationToSpeecherList(delegation: itenToInsert!)){
             embeddedViewController.dataSource.addItenToDts(iten: itenToInsert!)
             embeddedViewController.updateDataSource()
+        }
+    }
+    
+    func verifyDelegationToSpeecherList(delegation: String) -> Bool{
+        if (delegation.isEmpty) {
+            return false
+        } else {
+            let speechList = UserDefaults.standard.array(forKey: "speechList") as! Array<String>;
+            let ret = (speechList.index(of: delegation) == nil);
+            return ret
         }
     }
     
