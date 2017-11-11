@@ -61,7 +61,7 @@ class TimerPageController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func update(_ timer: Timer) {
+    @objc func update(_ timer: Timer) {
         timeLeft = timeLeft - 1
         
         updateLabel()
@@ -100,7 +100,7 @@ class TimerPageController: UIViewController {
         progressBar.progress = progress
     }
     
-    func playOrPause(_ sender: Any) {
+    @objc func playOrPause(_ sender: Any) {
         if (timer.isValid) {
             timerPause(sender)
         } else {

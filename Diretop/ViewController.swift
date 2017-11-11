@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func keyboardShow(notification: NSNotification) {
+    @objc func keyboardShow(notification: NSNotification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
@@ -56,13 +56,13 @@ class ViewController: UIViewController {
             self.bottomConstraint.constant = self.bottomConstraintValue + keyboardFrame.size.height - tabBarHeight!
         })
     }
-    func keyboardHide(notification: NSNotification) {
+    @objc func keyboardHide(notification: NSNotification) {
         UIView.animate(withDuration: 0.1, animations: { () -> Void in
             self.bottomConstraint.constant = self.bottomConstraintValue
         })
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     

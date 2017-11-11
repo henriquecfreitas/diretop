@@ -85,8 +85,8 @@ class DelegationsPickerView: UIViewController {
         let constShowAtt = NSLayoutAttribute.bottom
         let constHideAtt = NSLayoutAttribute.top
         
-        constraintShow = NSLayoutConstraint(item: constItem, attribute: constAtt, relatedBy: constRelBy, toItem: constSecItem, attribute: constShowAtt, multiplier: constMult, constant: constCons)
-        constraintHide = NSLayoutConstraint(item: constItem, attribute: constAtt, relatedBy: constRelBy, toItem: constSecItem, attribute: constHideAtt, multiplier: constMult, constant: constCons)
+        constraintShow = NSLayoutConstraint(item: constItem as Any, attribute: constAtt, relatedBy: constRelBy, toItem: constSecItem, attribute: constShowAtt, multiplier: constMult, constant: constCons)
+        constraintHide = NSLayoutConstraint(item: constItem as Any, attribute: constAtt, relatedBy: constRelBy, toItem: constSecItem, attribute: constHideAtt, multiplier: constMult, constant: constCons)
     
         speechListView.removeConstraint(hideDelegationsConstraint)
         speechListView.addConstraint(constraintHide)
@@ -114,7 +114,7 @@ class DelegationsPickerView: UIViewController {
         delegationsStackView.isHidden = false
     }
     
-    func hideDelegations(){
+    @objc func hideDelegations(){
         speechListView.removeConstraint(constraintShow)
         speechListView.addConstraint(constraintHide)
         
