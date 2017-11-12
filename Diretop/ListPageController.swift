@@ -23,9 +23,16 @@ class ListPageController: UITableViewController {
         updateDataSource()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "speecherListSegue2") {
+            let speechListInputViewController = segue.destination as! SpeechListInputController
+            speechListInputViewController.speechListPageController = self
+        }
+    }
+    
+    // Child Delegate
+    func dataChanged(str: String) {
+        // Do whatever you need with the data
     }
     
     func updateDataSource() {

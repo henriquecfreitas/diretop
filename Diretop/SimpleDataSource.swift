@@ -26,10 +26,12 @@ class SimpleDataSource: NSObject {
 
 class SimpleTableViewDataSource: SimpleDataSource, UITableViewDataSource {
     var tableKey: String!
+    var canDelete: Bool!
     
-    init(tableKey: String) {
+    init(tableKey: String, canDelete: Bool = true) {
         super.init()
         self.tableKey = tableKey
+        self.canDelete = canDelete
         self.setData(dataToSet: getPersistedData())
     }
     
@@ -45,7 +47,7 @@ class SimpleTableViewDataSource: SimpleDataSource, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return self.canDelete
     }
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
